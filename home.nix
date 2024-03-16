@@ -10,6 +10,12 @@
   };
 
   home.packages = with pkgs; [
+    # archives
+    zip
+    xz
+    unzip
+    p7zip
+
     file
     tree
     which
