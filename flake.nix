@@ -29,7 +29,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.user.linnovs = import ./home.nix;
+          home-manager.users.linnovs = import ./home.nix;
         }
       ];
     };
