@@ -38,5 +38,11 @@
     usbutils # lsusb
   ];
 
+  program.git = {
+    enable = true;
+    userName = "Linnovs Liu";
+    userEmail = "fforwm_cynnwys@slmail.me";
+  };
+
   home.stateVersion = "23.11";
 }
