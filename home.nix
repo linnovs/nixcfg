@@ -10,6 +10,12 @@
   };
 
   home.packages = with pkgs; [
+    file
+    tree
+    which
+    gnupg
+    gnutar
+
     util-linux # lsblk, etc.
     pciutils # lspci
     usbutils # lsusb
