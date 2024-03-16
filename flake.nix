@@ -1,5 +1,5 @@
 {
-  description = "My NixOS flake";
+  description = "Linnovs's NixOS configuration flake";
 
   nixConfig = {
     extra-substituters = [
