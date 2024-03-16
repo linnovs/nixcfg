@@ -10,11 +10,22 @@
   };
 
   home.packages = with pkgs; [
+    neofetch
+
     # archives
     zip
     xz
     unzip
     p7zip
+
+    ripgrep #  recursively searches directories for a regex pattern
+    jq # a command-line JSON parser
+    eza # modern replacement for 'ls'
+    fzf # a command-line fuzzy finder
+    lazygit # a simple TUI for git
+
+    btop # replacement for htop
+    lsof # list open files
 
     file
     tree
