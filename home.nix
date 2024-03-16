@@ -38,7 +38,7 @@
     usbutils # lsusb
   ];
 
-  program.git = {
+  programs.git = {
     enable = true;
     userName = "Linnovs Liu";
     userEmail = "fforwm_cynnwys@slmail.me";
