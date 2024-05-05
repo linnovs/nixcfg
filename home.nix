@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/linnovs";
 
   xresources.properties = {
-    "Xcursor.size" = 16;
+    "Xcursor.size" = 24;
     "Xft.dpi" = 172;
   };
 
