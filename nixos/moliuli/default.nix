@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
   imports =
@@ -18,7 +18,7 @@
     };
   };
 
-  users.users.linnovs.openssh.authorizedKeys.keys = lib.mkForce [
+  users.users.linnovs.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIjRPXhIGrNUtCIdlzEoDmSq8tvAnPKtlnAgkH1//Ho linnovs@blazarmist"
   ];
 

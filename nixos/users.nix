@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
   users.users = {
@@ -7,7 +7,7 @@
       description = "linnovs";
       initialPassword = "capital-impose-june";
       extraGroups = [ "networkmanager" "wheel" ];
-      openssh.authorizedKeys.keys = lib.mkDefault [ ];
+      openssh.authorizedKeys.keys = [ ];
     };
   };
 }
