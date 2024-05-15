@@ -9,6 +9,8 @@
   time.timeZone = "Aisa/Hong_Kong";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "linnovs" ];
+
   environment.systemPackages = with pkgs; [
     git
     neovim
