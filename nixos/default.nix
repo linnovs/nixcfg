@@ -10,14 +10,18 @@
 
   time.timeZone = "Aisa/Hong_Kong";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "linnovs" ];
-  nix.gc =
-    {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "linnovs" ];
     };
+
+    gc = {
+      automatic = lib.mkDefault true;
+      dates = lib.mkDefault "weekly";
+      options = lib.mkDefault "--delete-older-than 7d";
+    };
+  };
 
   environment.systemPackages = with pkgs;
     [
