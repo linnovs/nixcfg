@@ -10,13 +10,14 @@
       enable = true;
       autoNumlock = true;
       theme = "catppuccin-macchiato";
-      extraPackages = [
-        (pkgs-unstable.catppuccin-sddm.override {
-          flavor = "macchiato";
-          font = "Noto Sans";
-          fontSize = 12;
-        })
-      ];
     };
   };
+
+  environment.systemPackages = with pkgs-unstable; [
+    (catppuccin-sddm.override {
+      flavor = "macchiato";
+      font = "Noto Sans";
+      fontSize = 12;
+    })
+  ];
 }
