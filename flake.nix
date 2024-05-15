@@ -19,7 +19,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, disko, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, ... }: {
     # yuxuyin
 
     # qemu testing machine
