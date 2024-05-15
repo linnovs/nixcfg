@@ -18,7 +18,7 @@
       flavor = "macchiato";
       font = "Noto Sans";
       fontSize = 12;
-      clockEnable = true;
+      clockEnabled = true;
     })
   ];
 }
