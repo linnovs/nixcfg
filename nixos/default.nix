@@ -33,17 +33,6 @@
   environment.variables.EDITOR = "nvim";
 
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      X11Forwarding = true;
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-  };
-
-  services.avahi.enable = true;
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
