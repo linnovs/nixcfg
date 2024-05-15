@@ -23,16 +23,16 @@
     };
   };
 
-  environment.systemPackages = with pkgs;
-    [
+  environment = {
+    systemPackages = with pkgs; [
       git
       neovim
       wget
       curl
     ];
-  environment.variables.EDITOR = "nvim";
 
-
+    variables.EDITOR = "nvim";
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
