@@ -1,6 +1,12 @@
 { pkgs, lib, ... }:
 
 {
+  imports = [
+    ./users.nix
+    ./locale.nix
+    ./services.nix
+  ];
+
   boot = {
     loader.systemd-boot.enable = true;
     efi.canTouchEfiVariables = false;
