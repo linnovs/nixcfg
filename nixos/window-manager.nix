@@ -1,4 +1,4 @@
-{ pkgs-unstable, lib, ... }:
+{ pkgs-unstable, ... }:
 
 {
   services.xserver = {
@@ -13,11 +13,11 @@
     };
   };
 
-  environment.systemPackages = lib.mkAfter [
-    (pkgs-unstable.catppuccin-sddm.override {
+  environment.systemPackages = with pkgs-unstable; [
+    (catppuccin-sddm.override {
       flavor = "macchiato";
       font = "Noto Sans";
-      fontSize = 12;
+      fontSize = "12";
     })
   ];
 }
