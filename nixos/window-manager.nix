@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -13,7 +13,7 @@
     };
   };
 
-  environment.systemPackages = lib.mkAfter [
+  environment.systemPackages = [
     (pkgs.catppuccin-sddm.override {
       flavor = "macchiato";
       font = "Noto Sans";
