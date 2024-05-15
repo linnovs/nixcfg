@@ -6,7 +6,7 @@
 
     desktopManager.xterm.enable = false;
 
-    displayManager.lightdm = {
+    displayManager.sddm = {
       enable = true;
     };
   };
