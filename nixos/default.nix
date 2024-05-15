@@ -32,14 +32,6 @@
     ];
   environment.variables.EDITOR = "nvim";
 
-  users.users.linnovs = {
-    isNormalUser = true;
-    description = "linnovs";
-    extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIjRPXhIGrNUtCIdlzEoDmSq8tvAnPKtlnAgkH1//Ho linnovs@blazarmist"
-    ];
-  };
 
   services.openssh = {
     enable = true;
