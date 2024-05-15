@@ -19,12 +19,17 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }: {
     # yuxuyin
 
     # qemu testing machine
-    nixosConfigurations.moliuli = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.moliuli = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
+      specialArgs = {
+        pkgs-unstable = import nixpkgs-unstable {
+          inherit system;
+        };
+      };
       modules = [
         ./nixos/moliuli
 
