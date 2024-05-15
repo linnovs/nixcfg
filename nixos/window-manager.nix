@@ -13,8 +13,8 @@
     };
   };
 
-  environment.systemPackages = with pkgs-unstable; [
-    (catppuccin-sddm.override {
+  environment.systemPackages = [
+    (pkgs-unstable.catppuccin-sddm.override {
       flavor = "macchiato";
       font = "Noto Sans";
       fontSize = 12;
