@@ -1,13 +1,11 @@
 { ... }:
 
 {
-  imports =
-    [
-      ../default.nix
-      ../window-manager.nix
-      ./hardware-configuration.nix # hardware configuration for the qemu system
-    ];
-
+  imports = [
+    ../default.nix
+    ../window-manager.nix
+    ./hardware-configuration.nix # hardware configuration for the qemu system
+  ];
 
   services.openssh = {
     enable = true;
