@@ -4,7 +4,7 @@
   imports =
     [
       ../default.nix
-      ../qtile.nix
+      ../window-manager.nix
       ./hardware-configuration.nix # hardware configuration for the qemu system
     ];
 
