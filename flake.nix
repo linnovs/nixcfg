@@ -12,22 +12,27 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-ustable";
 
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations.moliouli = nixpkgs.lib.nixosSystem {
+  outputs = { nixpkgs, disko, home-manager, ... }: {
+    # yuxuyin
+
+    # qemu testing machine
+    nixosConfigurations.moliuli = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./nixos/moliuli
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.linnovs = import ./home.nix;
+          home-manager.users.linnovs = import ./home;
         }
       ];
     };
