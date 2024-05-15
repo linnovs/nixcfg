@@ -17,7 +17,7 @@
     (catppuccin-sddm.override {
       flavor = "macchiato";
       font = "Noto Sans";
-      fontSize = "12";
+      fontSize = "9";
     })
   ];
 }
