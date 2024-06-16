@@ -17,7 +17,7 @@ nixpkgs.lib.nixosSystem {
       }
 
       {
-        _module.args = { inherit inputs pkgs-unstable; };
+        _module.args = { inherit inputs pkgs-unstable stateVersion; };
       }
     ];
 }
