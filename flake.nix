@@ -21,7 +21,7 @@
 
   outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
-      myLib = import ./lib;
+      mylib = import ./lib { };
       username = "linnovs";
       baseModules = [ ./nixos ];
       baseHomeModules = [ ./home ];
@@ -29,14 +29,14 @@
     {
       nixosConfigurations = {
         # my main PC
-        yuxuyin = myLib.nixosSystem {
+        yuxuyin = mylib.nixosSystem {
           inherit inputs username; system = "x86_64-linux";
           nixos-modules = baseModules;
           home-modules = baseHomeModules;
         };
 
         # qemu testing machine
-        moliuli = myLib.nixosSystem {
+        moliuli = mylib.nixosSystem {
           inherit inputs username; system = "x86_64-linux";
           nixos-modules = baseModules ++ [ ./nixos/window-managers/qtile.nix ./hosts/moliuli ];
           home-modules = baseHomeModules;

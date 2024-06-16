@@ -1,4 +1,4 @@
 {}:
 {
-  nixOsSystem = import ./nixosSystem.nix;
+  nixosSystem = import ./nixosSystem.nix;
 }
