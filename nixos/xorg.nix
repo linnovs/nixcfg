@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -13,7 +13,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     (catppuccin-sddm.override {
       flavor = "macchiato";
       font = "Noto Sans";
