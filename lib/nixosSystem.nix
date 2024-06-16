@@ -12,7 +12,7 @@ nixpkgs.lib.nixosSystem {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = inputs ++ { inherit stateVersion; };
+        home-manager.extraSpecialArgs = inputs // { inherit stateVersion; };
         home-manager.users.linnovs.imports = home-modules;
       }
 
