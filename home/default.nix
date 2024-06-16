@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, stateVersion, ... }:
 
 {
   home.username = "linnovs";
@@ -44,6 +44,6 @@
     userEmail = "fforwm_cynnwys@slmail.me";
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = stateVersion;
   programs.home-manager.enable = true;
 }

@@ -1,4 +1,4 @@
-{ inputs, pkgs-unstable, username, system, nixos-modules, home-modules, ... }:
+{ inputs, pkgs-unstable, stateVersion, system, nixos-modules, home-modules, ... }:
 let
   inherit (inputs) nixpkgs home-manager;
 in
@@ -17,7 +17,7 @@ nixpkgs.lib.nixosSystem {
       }
 
       {
-        _module.args = { inherit inputs; inherit pkgs-unstable; };
+        _module.args = { inherit inputs pkgs-unstable stateVersion; };
       }
     ];
 }

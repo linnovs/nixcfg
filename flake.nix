@@ -32,6 +32,7 @@
         # my main PC
         yuxuyin = mylib.nixosSystem {
           inherit inputs username pkgs-unstable;
+          stateVersion = "23.11";
           system = "x86_64-linux";
           nixos-modules = baseModules;
           home-modules = baseHomeModules;
@@ -40,6 +41,7 @@
         # qemu testing machine
         moliuli = mylib.nixosSystem {
           inherit inputs username pkgs-unstable;
+          stateVersion = "23.11";
           system = "x86_64-linux";
           nixos-modules = baseModules ++ [ ./nixos/window-managers/qtile.nix ./hosts/moliuli ];
           home-modules = baseHomeModules;
