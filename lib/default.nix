@@ -1,0 +1,4 @@
+{}:
+{
+  nixOsSystem = import ./nixosSystem.nix;
+}
