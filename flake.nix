@@ -42,7 +42,7 @@
           inherit inputs pkgs-unstable;
           stateVersion = "23.11";
           system = "x86_64-linux";
-          nixos-modules = baseModules ++ [ ./nixos/window-managers/qtile.nix ./hosts/moliuli ];
+          nixos-modules = baseModules ++ [ ./hosts/moliuli ./nixos/window-managers/qtile.nix ];
           home-modules = baseHomeModules;
         };
       };
