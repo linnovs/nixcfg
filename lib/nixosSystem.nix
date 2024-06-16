@@ -13,7 +13,7 @@ nixpkgs.lib.nixosSystem {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = inputs;
-        home-manager.users."${username}".imports = home-modules;
+        home-manager.users.linnovs.imports = home-modules;
       }
 
       {
