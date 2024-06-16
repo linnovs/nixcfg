@@ -19,27 +19,28 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }: {
-    # yuxuyin
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    let
+      myLib = import ./lib;
+      username = "linnovs";
+      baseModules = [ ./nixos ];
+      baseHomeModules = [ ./home ];
+    in
+    {
+      nixosConfigurations = {
+        # my main PC
+        yuxuyin = myLib.nixosSystem {
+          inherit inputs username; system = "x86_64-linux";
+          nixos-modules = baseModules;
+          home-modules = baseHomeModules;
+        };
 
-    # qemu testing machine
-    nixosConfigurations.moliuli = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = {
-        pkgs-unstable = import nixpkgs-unstable {
-          inherit system;
+        # qemu testing machine
+        moliuli = myLib.nixosSystem {
+          inherit inputs username; system = "x86_64-linux";
+          nixos-modules = baseModules ++ [ ./nixos/window-managers/qtile.nix ./hosts/moliuli ];
+          home-modules = baseHomeModules;
         };
       };
-      modules = [
-        ./nixos/moliuli
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.linnovs = import ./home;
-        }
-      ];
     };
-  };
 }
