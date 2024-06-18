@@ -8,11 +8,12 @@
       enable = true;
       autoNumlock = true;
       theme = "catppuccin-macchiato";
+      package = pkgs.kdePackages.sddm;
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    (catppuccin-sddm.override {
+  environment.systemPackages = [
+    (pkgs.catppuccin-sddm.override {
       flavor = "macchiato";
       font = "Noto Sans";
       fontSize = "9";
