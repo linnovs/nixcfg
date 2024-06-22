@@ -5,6 +5,7 @@
     ./users.nix
     ./locale.nix
     ./services.nix
+    ./window-managers
   ];
 
   boot.loader = {
