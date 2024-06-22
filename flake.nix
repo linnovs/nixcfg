@@ -36,12 +36,13 @@
           system = "x86_64-linux";
           modules = [
             ./nixos
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = inputs // { stateVersion = "23.11"; };
-              home-manager.users.linnovs.imports = ./home;
+              home-manager.users.linnovs.imports = [ ./home ];
             }
 
             { _module.args = { stateVersion = "23.11"; }; }
