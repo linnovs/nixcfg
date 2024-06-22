@@ -4,13 +4,15 @@ let
 in
 {
   config = lib.mkIf enableXorg {
-    services.xserver.enable = true;
+    services = {
+      xserver.enable = true;
 
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = true;
-      theme = "catppuccin-macchiato";
-      package = pkgs.kdePackages.sddm;
+      displayManager.sddm = {
+        enable = true;
+        autoNumlock = true;
+        theme = "catppuccin-macchiato";
+        package = pkgs.kdePackages.sddm;
+      };
     };
 
     environment.systemPackages = [
