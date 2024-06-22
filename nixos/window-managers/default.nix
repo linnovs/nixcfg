@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ./qtile.nix ];
+  imports = [
+    ./xorg.nix
+    ./qtile.nix
+  ];
 }
