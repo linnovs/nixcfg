@@ -31,23 +31,23 @@
       # };
 
       # qemu testing machine
-      moliuli = nixpkgs.lib.nixosSystem
-        {
-          system = "x86_64-linux";
-          modules = [
-            ./nixos
+      moliuli = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos
+          ./hosts/moliuli
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = inputs // { stateVersion = "23.11"; };
-              home-manager.users.linnovs.imports = [ ./home ];
-            }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = inputs // { stateVersion = "23.11"; };
+            home-manager.users.linnovs.imports = [ ./home ];
+          }
 
-            { _module.args = { stateVersion = "23.11"; }; }
-          ];
-        };
+          { _module.args = { stateVersion = "23.11"; }; }
+        ];
+      };
     };
   };
 }
