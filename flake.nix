@@ -44,8 +44,6 @@
             home-manager.extraSpecialArgs = inputs // { stateVersion = "23.11"; };
             home-manager.users.linnovs.imports = [ ./home ];
           }
-
-          { _module.args = { stateVersion = "23.11"; }; }
         ];
       };
     };
