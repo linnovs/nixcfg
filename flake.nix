@@ -19,32 +19,34 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, ... }:
-    let
-      mylib = import ./lib { };
-      pkgs-unstable = nixpkgs-unstable;
-      baseModules = [ ./nixos ];
-      baseHomeModules = [ ./home ];
-    in
-    {
-      nixosConfigurations = {
-        # my main PC
-        yuxuyin = mylib.nixosSystem {
-          inherit inputs pkgs-unstable;
-          stateVersion = "23.11";
-          system = "x86_64-linux";
-          nixos-modules = baseModules;
-          home-modules = baseHomeModules;
-        };
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+    nixosConfigurations = {
+      # my main PC
+      # yuxuyin = mylib.nixosSystem {
+      #   inherit inputs pkgs-unstable;
+      #   stateVersion = "23.11";
+      #   system = "x86_64-linux";
+      #   nixos-modules = baseModules;
+      #   home-modules = baseHomeModules;
+      # };
 
-        # qemu testing machine
-        moliuli = mylib.nixosSystem {
-          inherit inputs pkgs-unstable;
-          stateVersion = "23.11";
+      # qemu testing machine
+      moliuli = nixpkgs.lib.nixosSystem
+        {
           system = "x86_64-linux";
-          nixos-modules = baseModules ++ [ ./hosts/moliuli ./nixos/window-managers/qtile.nix ];
-          home-modules = baseHomeModules;
+          modules = [
+            ./nixos
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = inputs // { stateVersion = "23.11"; };
+              home-manager.users.linnovs.imports = ./home;
+            }
+
+            { _module.args = { stateVersion = "23.11"; }; }
+          ];
         };
-      };
     };
+  };
 }
