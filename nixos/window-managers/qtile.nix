@@ -1,27 +1,21 @@
-{ pkgs, ... }:
-
+{ config, lib, ... }:
+let
+  cfg = config.windowManagers.qtile;
+in
 {
-  services = {
-    xserver.enable = true;
-
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = true;
-      theme = "catppuccin-macchiato";
-      package = pkgs.kdePackages.sddm;
+  options = {
+    windowManagers.qtile = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
     };
   };
 
-  environment.systemPackages = [
-    (pkgs.catppuccin-sddm.override {
-      flavor = "macchiato";
-      font = "Noto Sans";
-      fontSize = "9";
-    })
-  ];
-
-  services.xserver.windowManager.qtile = {
-    enable = true;
-    backend = "x11";
+  config = lib.mkIf cfg {
+    services = {
+      xserver.windowManager.qtile = {
+        enable = true;
+        backend = "x11";
+      };
+    };
   };
 }
