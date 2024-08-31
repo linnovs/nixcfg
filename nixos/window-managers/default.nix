@@ -10,5 +10,6 @@
   imports = [
     ./xorg.nix
     ./qtile.nix
+    ./hyprland.nix
   ];
 }
